@@ -1,0 +1,25 @@
+	
+
+    // Time limit exceeded
+	int countPairs(vector<vector<int>> &mat1, vector<vector<int>> &mat2, int n, int x)
+	{
+	    int c=0;
+	    vector<int> a,b;
+	    for(int i=0;i<n;i++)
+	    {
+	        for(int j=0;j<n;j++)
+	        {
+	            a.push_back(mat1[i][j]);
+	            b.push_back(mat2[i][j]);
+	        }
+	    }
+	    vector<int>::iterator it;
+	    for(int i=0;i<a.size();i++)
+	    {
+	        int key=x-a[i];
+	        it = find(b.begin(), b.end(), key);
+	        if(it!=b.end())
+	           c+=1;
+	    }
+	    return c;
+	}
