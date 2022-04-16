@@ -26,3 +26,33 @@ vector<int> subarraySum(int arr[], int n, long long s)
     }
 
     // Optimized O(n) solution
+    //Successful Approach
+    vector<int> subarraySum(int arr[], int n, long long S)
+    {
+        int sum=arr[0],s=0,e=0;
+        int i;
+        vector<int>v;
+        for(i=1;i<=n;)
+        {
+            if(sum==S)
+            {
+                v.push_back(s+1);
+                v.push_back(i);
+              //  cout<<"arr[i]:"<<arr[i];
+                break;
+            }
+            else if(sum>S)
+            {
+                sum-=arr[s];
+                s+=1;
+                continue;
+            }
+            
+            sum+=arr[i];
+            i++;
+            //cout<<sum<<endl;
+        }
+        if(v.empty())
+            v.push_back(-1);
+        return v;
+    }
