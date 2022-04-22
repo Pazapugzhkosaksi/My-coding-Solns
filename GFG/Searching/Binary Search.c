@@ -9,7 +9,7 @@
             if(arr[mid]==k)
                 return mid;
             if(arr[mid]>k)
-                return binarySearchUtility(arr,0,mid-1,k);
+                return binarySearchUtility(arr,low,mid-1,k);
             if(arr[mid]<k)
                 return binarySearchUtility(arr,mid+1,high,k);
         }
