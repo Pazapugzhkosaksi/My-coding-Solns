@@ -28,3 +28,44 @@ Node* addOne(Node *head)
       }
        return h1;
     }
+
+// Successful Approach using Recursion 
+    
+      int addll(Node* root,Node *head,int c)
+    {
+        if(head->next==NULL)
+        {
+            head->data=head->data+1;
+            if(head->data>=10 && head!=root)
+            {
+                c=1;
+                head->data=head->data-10;
+            }
+            else
+                c=0;
+            return c;
+        }
+        c=addll(root,head->next,c);
+        head->data=head->data+c;
+        if(head->data>=10 && head!=root)
+        {
+                c=1;
+                head->data=head->data-10;
+                return c;
+        }
+        else
+        {
+            c=0;
+            return c;
+        }
+        
+        
+    }
+
+    Node* addOne(Node *head) 
+    {
+        int c=0;
+        Node* temp=head;
+        addll(head,temp,c);
+        return head;
+    }
