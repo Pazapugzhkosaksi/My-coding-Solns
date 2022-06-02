@@ -86,3 +86,20 @@ vector<int> leftSmaller(int n, int a[]){
         }
         return arr;
     }
+
+// GFG Soln
+    vector<int> leftSmaller(int n, int a[]){
+        stack<int> s;
+        vector<int> arr;
+        for(int i=0;i<n;i++)
+        {
+            while(!s.empty() && s.top()>=a[i])
+                s.pop();
+            if(s.empty())
+                arr.push_back(-1);
+            else
+                arr.push_back(s.top());
+            s.push(a[i]);
+        }
+        return arr;
+    }

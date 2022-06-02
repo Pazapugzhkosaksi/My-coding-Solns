@@ -26,3 +26,33 @@ string reverseWords(string S)
         
          return s;
 } 
+
+// Successful and nearly optimal in terms of time and space
+// Soln after revisiting 
+ string reverseWords(string S) 
+    { 
+       stack<string> st;
+       string s="";
+       int i=0;
+       while(S[i]!='\0')
+       {
+           if(S[i]=='.')
+           {
+               st.push(s);
+               s="";
+               st.push(".");
+           }
+           else{
+               s+=S[i];
+           }
+           i+=1;
+       }
+       st.push(s);
+       s="";
+       while(!st.empty())
+       {
+           s+=st.top();
+           st.pop();
+       }
+       return s;
+    } 
