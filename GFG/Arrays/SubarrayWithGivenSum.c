@@ -32,7 +32,7 @@ vector<int> subarraySum(int arr[], int n, long long s)
         int sum=arr[0],s=0,e=0;
         int i;
         vector<int>v;
-        for(i=1;i<=n;)
+        for(i=1;i<=n;)  // find out y the loop is going till =n
         {
             if(sum==S)
             {
