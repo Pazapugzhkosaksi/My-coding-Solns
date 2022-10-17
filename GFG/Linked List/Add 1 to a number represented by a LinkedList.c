@@ -69,3 +69,46 @@ Node* addOne(Node *head)
         addll(head,temp,c);
         return head;
     }
+
+
+// Head Recursion
+
+ int utility(Node* head,Node* temp,int c)
+{
+        if(temp->next!=NULL)
+            c=utility(head,temp->next,c);
+        else
+        {
+            temp->data=temp->data+c+1;
+            if(temp->data>=10)
+            {
+                temp->data-=10;
+                c=1;
+            }
+            return c;
+        }
+        temp->data=temp->data+c;
+        if(temp->data>=10 && temp!=head)
+        {
+                temp->data-=10;
+                c=1;
+        }
+        else{
+            c=0;
+        }
+        return c;
+    }
+    Node* addOne(Node *head) 
+    {
+        if (head==NULL)
+            return head;
+        if(head->next==NULL)
+        {
+            head->data+=1;
+            return head;
+        }
+        int c=0;
+        Node* temp=head;
+        c=utility(head,temp,c);
+        return head;
+}

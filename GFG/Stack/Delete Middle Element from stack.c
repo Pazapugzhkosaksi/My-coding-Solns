@@ -1,6 +1,6 @@
 // Successful approach as per criteria 
- T.C : O(N)
- S.C : O(N)
+// T.C : O(N)
+// S.C : O(N)
 void deleteMid(stack<int>&s, int sizeOfStack)
 {
         stack<int>ts;
