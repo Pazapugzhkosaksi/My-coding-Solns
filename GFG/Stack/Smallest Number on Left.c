@@ -93,6 +93,7 @@ vector<int> leftSmaller(int n, int a[]){
         vector<int> arr;
         for(int i=0;i<n;i++)
         {
+            // creating a decreasing order in the stack
             while(!s.empty() && s.top()>=a[i])
                 s.pop();
             if(s.empty())

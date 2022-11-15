@@ -56,6 +56,8 @@ vector<long long> nextLargerElement(vector<long long> arr, int n){
     res.push_back(-1);
     for(int i=n-2;i>=0;i--)
     {
+        // creating an increasing order in the stack 
+        //eg [1 3 2 4] 
         while(!s.empty() && arr[i]>=s.top())
         {
             s.pop();
