@@ -3,6 +3,7 @@ void recPermute(int A[],int n,vector<long long> &ans,int ind){
     
     if(ind ==n)
     {
+        // finding the permutation
         long long sum=0;
         for(int i=0;i<n;i++){
             sum=((sum*10)%1000000007)+A[i];

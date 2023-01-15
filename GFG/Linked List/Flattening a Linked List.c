@@ -1,5 +1,5 @@
 // Successful Approach but not space complex
-// S.C = O(N)
+// S.C = O(N) 
 Node *flatten(Node *root)
 {
    vector<int> elems;
@@ -24,7 +24,6 @@ Node *flatten(Node *root)
        curr->bottom=tem;
        curr=tem;
    }
-  // cout<<endl;
    root=res;
    return root;
 }
