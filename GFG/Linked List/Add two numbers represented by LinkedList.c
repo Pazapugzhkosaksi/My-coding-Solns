@@ -57,7 +57,7 @@ class Solution
         {
             
                 t1->data=t1->data-10;
-                return 1;
+                return 1; // not a good practice to return like this
         
         }
         else

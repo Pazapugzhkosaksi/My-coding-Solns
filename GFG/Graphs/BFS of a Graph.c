@@ -7,22 +7,19 @@ vector<int> bfsOfGraph(int V, vector<int> adj[]) {
         {
             if(!visited[i]){
                 queue<int> q;
-                visited[i]=1;
-               
+                visited[i]=1; 
                 q.push(i);
                 
                 while(!q.empty()){
                     int node=q.front();
                     q.pop();
-                    //cout<<node<<":popped"<<endl;
-                    bfs.push_back(node);
+                    bfs.push_back(node);     // Important to add the element into bfs array only after popping from queue
                     
                     for(int j=0;j<adj[node].size();j++)
                     {
                         if(visited[adj[node][j]]==0)
                         {
                             visited[adj[node][j]]=1;
-                          //  cout<<adj[node][j]<<" inserted inside for"<<endl;
                             q.push(adj[node][j]);
                         }
                     }
@@ -33,3 +30,34 @@ vector<int> bfsOfGraph(int V, vector<int> adj[]) {
         }
         //return bfs; This must be used if all the disconnected components are needed
 }
+
+// Revisited Approach
+void bfs(vector<int> adj[],int V,vector<int> &visited,vector<int> &bfs_res,int i){
+        visited[i]=1;
+        bfs_res.push_back(i);
+        queue<int> q;
+        q.push(i);
+        while(!q.empty()){
+            int node=q.front();
+            q.pop();
+            for(auto it:adj[node]){
+                if(!visited[it]){
+                    visited[it]=1;
+                    q.push(it);
+                    bfs_res.push_back(it);
+                }
+            }
+        }
+    }
+  
+    // Function to return Breadth First Traversal of given graph.
+    vector<int> bfsOfGraph(int V, vector<int> adj[]) {
+        vector<int> visited(V+1,0);
+        vector<int> bfs_res;
+        //for(int i=0;i<V;i++){
+        //    if(!visited[0]){
+                bfs(adj,V,visited,bfs_res,0);
+          //  }
+        //}
+        return bfs_res;
+    }

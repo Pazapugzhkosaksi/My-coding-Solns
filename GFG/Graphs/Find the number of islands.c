@@ -21,7 +21,6 @@ void bfscheck(vector<vector<char>> grid,vector<vector<int>> &visited,int row,int
                      {
                          visited[nr][nc]=1;
                          q.push({nr,nc});
-                        // cout<<"pushed"<<endl;
                      }
                  }
              }
