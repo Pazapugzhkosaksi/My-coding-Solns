@@ -41,3 +41,22 @@ vector <int> max_of_subarrays(int *arr, int n, int k)
         }
         return v;
     }
+
+vector <int> max_of_subarrays(int *arr, int n, int k)
+    {
+        vector<int> ans;
+        deque<int> queue;
+        for(int i=0;i<n;i++)
+        {
+            if(!queue.empty() && queue.front()==i-k)
+                queue.pop_front();
+            while(!queue.empty() && *(arr+i)>=*(arr+queue.back()))
+                queue.pop_back();
+            queue.push_back(i);
+            if(i>=k-1)
+            {
+                ans.push_back(*(arr+queue.front()));
+            }
+        }
+        return ans;
+    }

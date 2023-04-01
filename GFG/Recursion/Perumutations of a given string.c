@@ -43,6 +43,25 @@ class Solution
 	    }
 	}
 	
+	/*
+                                                                       ABCD
+
+                                                      A [1,0,0,0] i=0
+                                                  / (branch for i=1)          \       
+                                                    AB[1,1,0,0]  i=1   
+ 					/  (Branch for i=2)                     |
+                        ABC[1,1,1,0] i=2                    |
+							/		   \                    | 
+                ABCD[1,1,1,1]  i=3     	\                   |
+                                         ABCD[1,1,1,1]i=3   |                      
+															|
+                                                     branch for i=3
+                                                ABD[1,1,0,1] i=3
+                                            /
+    									ABDC[1,1,1,1]
+
+
+    */
     
 	vector<string>find_permutation(string S)
 	{
@@ -100,3 +119,17 @@ vector<string>find_permutation(string S)
 	}
 	return res;
 }
+
+/*
+															ABC
+              swap A with A                       Swap B with A                        swap C with A
+			  (A,B,C)                 			 (B,C,A)                               (C,A,B)
+
+    swap B with B     B with C            C with C       C with A 			A with A         A with B
+	    (A,B,C)       (A,C,B)               (B,C,A)     (B,A,C)				   (C,A,B)         (C,B,A)
+
+     C with C         B with B            A with A       A with A             B with B       B with B
+    (A,B,C)           (A,C,B)              (B,C,A)      (B,A,C)               (C,A,B)          (C,B,A)  
+
+
+*/

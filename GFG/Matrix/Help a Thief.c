@@ -39,12 +39,14 @@ int findMax(int arr[],int n)
             return s;
         }
     }
+    
 // Peer Approach
 
     static bool comp(pair<int,int> a, pair<int,int> b)
      {
        return a.first > b.first;
      }
+     
     int maxCoins(int a[], int b[], int T, int N) {
         vector <pair<int,int>> v;
        for (int i=0; i<N; i++)
